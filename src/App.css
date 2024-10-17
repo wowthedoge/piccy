@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+:root {
+  --squareSizeInPx: 20px;
+  --gridLengthInSquares: 80;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.viewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.grid {
+  display: grid;
+  position: absolute;
+  grid-template-rows: repeat(var(--gridLengthInSquares), var(--squareSizeInPx));
+  grid-template-columns: repeat(var(--gridLengthInSquares), var(--squareSizeInPx));
+  overflow: hidden; 
+  background-image: url('./doge.jpg');
+  background-size: cover;
+  background-position: center; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.row {
+  display: contents;
 }
 
-.App-link {
-  color: #61dafb;
+.square {
+  width: var(--squareSizeInPx);
+  height: var(--squareSizeInPx);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.square.selected {
+  background-color: teal;
 }
